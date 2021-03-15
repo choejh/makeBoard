@@ -8,6 +8,11 @@ public class indexController {
 
 	@GetMapping("/")
 	public String getIndex() {
-		return "index";
+		return "myboard";
+	}
+	
+	@GetMapping("/write")
+	public String getIndex2() {
+		return "write";
 	}
 }
