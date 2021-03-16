@@ -1,14 +1,11 @@
-package com.me.board;
+package com.me.board.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class indexController {
+public class ViewController {
 
-	@GetMapping("/")
-	public String getIndex() {
-		return "myboard";
-	}
+
 	
 }

@@ -10,21 +10,24 @@
 </head>
 <body>
 
+<form method="post" enctype="multipart/form-data">
 <div class="input-group mb-3">
   <span class="input-group-text">아이디</span>
-  <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+  <input type="text" class="form-control" placeholder="Username" aria-label="Username" id="username" name="username">
   <span class="input-group-text">비밀번호</span>
-  <input type="text" class="form-control" placeholder="password" aria-label="password">
+  <input type="text" class="form-control" placeholder="password" aria-label="password" id="password" name="password">
 </div>
 <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">제목</span>
-  <input type="text" class="form-control" placeholder="subject" aria-label="subject" aria-describedby="basic-addon1">
+  <input type="text" class="form-control" placeholder="subject" aria-label="subject" aria-describedby="basic-addon1" id="subject" name="subject">
 </div>
 <div class="input-group">
   <span class="input-group-text">내용</span>
-  <textarea class="form-control" aria-label="With textarea"></textarea>
+  <textarea class="form-control" aria-label="With textarea" id="contents" name="contents"></textarea>
 </div>
-<button type="button" class="btn btn-light">제출</button>
+<button type="submit" class="btn btn-light">제출</button>
+</form>
+
 <button type="button" class="btn btn-light">초기화</button>
 </body>
 </html>
