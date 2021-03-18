@@ -15,5 +15,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 </insert>
 
+<select id="printList" resultType="com.me.board.dto.ListVO">
+	SELECT IDX,TITLE,CONTENTS,INSERTTIME,VIEWCNT,PASSWORD
+	FROM tb_board
+	ORDER BY IDX desc 
+</select>
 
 </mapper>
