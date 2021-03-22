@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.me.board.dao.BoardDao;
 import com.me.board.dto.ListVO;
+import com.me.board.dto.pageDTO;
 
 @Service
 public class BoardService {
@@ -17,9 +18,16 @@ public class BoardService {
 	@Autowired
 	private SqlSessionTemplate template;
 	
-	public List<ListVO> boardList(ListVO listvo){
+	public List<ListVO> boardList(pageDTO pagination){
 		dao = template.getMapper(BoardDao.class);
-		return dao.printList(listvo);
+		return dao.printList(pagination);
 	}
+	
+	//총 게시글 개수 확인
+	public int getBoardListCnt() {
+		dao = template.getMapper(BoardDao.class);
+		return dao.getBoardListCnt();
+	}
+	
 	
 }

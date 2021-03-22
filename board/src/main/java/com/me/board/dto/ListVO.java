@@ -1,6 +1,6 @@
 package com.me.board.dto;
 
-import java.sql.Time;
+import java.sql.Date;
 
 public class ListVO {
 
@@ -8,11 +8,11 @@ public class ListVO {
 	private int idx;
 	private String title;
 	private String contents;
-	private Time inserttime;
+	private Date inserttime;
 	private int viewcnt;
 	private String password;
 	
-	
+
 	public int getIdx() {
 		return idx;
 	}
@@ -31,10 +31,10 @@ public class ListVO {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public Time getInserttime() {
+	public Date getInserttime() {
 		return inserttime;
 	}
-	public void setInserttime(Time inserttime) {
+	public void setInserttime(Date inserttime) {
 		this.inserttime = inserttime;
 	}
 	public int getViewcnt() {

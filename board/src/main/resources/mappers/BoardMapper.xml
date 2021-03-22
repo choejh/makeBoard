@@ -19,6 +19,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	SELECT IDX,TITLE,CONTENTS,INSERTTIME,VIEWCNT,PASSWORD
 	FROM tb_board
 	ORDER BY IDX desc 
+	LIMIT #{startList},#{listSize}
+</select>
+
+<!-- 전체 글 개수 가져오기 -->
+ <select id="getBoardListCnt" resultType="int">
+	SELECT count(*) as listCnt FROM tb_board
 </select>
 
 </mapper>

@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.me.board.dto.ListVO;
+import com.me.board.dto.pageDTO;
 import com.me.board.service.BoardService;
 
 @Controller
@@ -19,9 +21,22 @@ public class ReadController {
 		private BoardService boardS;
 		
 		@GetMapping
-		public String boardList(ListVO listVO, Model model) {	
+		public String boardList(ListVO listVO, Model model,
+				@RequestParam(required=false, defaultValue="1") int page,
+				@RequestParam(required=false, defaultValue="1") int range
+				) {	//화면에서 보내온 데이터 중에 page를 받는다.
+			
+			//전체 게시글 개수
+			int listCnt = boardS.getBoardListCnt();
 
-			List<ListVO> list = boardS.boardList(listVO);
+			
+			//page
+			pageDTO pagination = new pageDTO();
+
+			pagination.pageinfo(page, range, listCnt);
+			model.addAttribute("pagination",pagination);
+		
+			List<ListVO> list = boardS.boardList(pagination);
 			model.addAttribute("list",list);	
 			System.out.println(list);
 		return "myboard";
