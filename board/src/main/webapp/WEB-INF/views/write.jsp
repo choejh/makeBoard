@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<form method="post" enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data" name="submitok">
 <div class="input-group mb-3">
   <span class="input-group-text">아이디</span>
   <input type="text" class="form-control" placeholder="Username" aria-label="Username" id="username" name="username">
@@ -25,9 +25,20 @@
   <span class="input-group-text">내용</span>
   <textarea class="form-control" aria-label="With textarea" id="contents" name="contents"></textarea>
 </div>
-<button type="submit" class="btn btn-light">제출</button>
 </form>
-
+<button type="submit" class="btn btn-light" id="submit" onclick="subcheck()">제출</button>
 <button type="button" class="btn btn-light">초기화</button>
 </body>
+<script>
+
+function subcheck(){
+	if(confirm("등록하시겠습니까?")==true){
+		document.submitok.submit();
+	} else {
+		return ;
+	}
+	
+}
+
+</script>
 </html>
