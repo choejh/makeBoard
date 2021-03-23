@@ -31,8 +31,18 @@
 </div>
 </form>
 <button type="button" class="btn btn-light" onClick="location.href='/board/list'">뒤로가기</button>
+<button type="button" class="btn btn-light" onClick="location.href='/board/modify?bno=${view.idx}'">수정</button>
+<button type="button" class="btn btn-light" onClick="subcheck()">삭제</button>
+
 </body>
 <script>
-
+function subcheck(){
+	if(confirm("정말 삭제하시겠습니까?")==true){
+		location.href='/board/delete?bno=${view.idx}'
+	} else {
+		return ;
+	}
+	
+}
 </script>
 </html>

@@ -33,4 +33,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	FROM tb_board
 	Where idx = #{idx}
 </select>
+
+<update id="modify" parameterType="com.me.board.dto.ListVO">
+	UPDATE tb_board
+	SET title=#{title},
+		contents=#{contents},
+		writer=#{writer}
+	WHERE idx=#{idx}
+	
+</update>
+
+<delete id="deleteList" parameterType="int">
+	DELETE
+	FROM tb_board
+	WHERE idx=#{idx}
+</delete>
 </mapper>

@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.me.board.dto.ListVO;
+import com.me.board.dto.WriteDTO;
 import com.me.board.dto.pageDTO;
 import com.me.board.service.BoardService;
 
@@ -50,4 +52,26 @@ public class ReadController {
 			model.addAttribute("view", vo);
 			return "detail";
 		}
+		
+		//게시물 수정
+		@GetMapping(value="/modify")
+		public String editView(@RequestParam("bno") int idx, Model model) {
+			ListVO vo = boardS.detailView(idx);
+			model.addAttribute("editview", vo);
+			return "edit";
+		}
+		//게시물 수정
+		@PostMapping(value="/modify")
+		public String postEditView(ListVO vo) {
+			boardS.modify(vo);
+			System.out.println(vo.getIdx());
+			return "redirect:/board/view?bno="+vo.getIdx();
+		}
+		//게시물 삭제
+		@GetMapping(value="/delete")
+		public String deleteList(@RequestParam("bno")int idx){
+			boardS.delete(idx);
+			return "redirect:/board/list";
+		}
+		
 }

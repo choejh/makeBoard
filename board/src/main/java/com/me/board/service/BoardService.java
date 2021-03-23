@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.me.board.dao.BoardDao;
 import com.me.board.dto.ListVO;
+import com.me.board.dto.WriteDTO;
 import com.me.board.dto.pageDTO;
 
 @Service
@@ -36,5 +37,16 @@ public class BoardService {
 		return dao.getDetailedView(idx);
 	}
 	
+	//게시물 수정
+	public void modify(ListVO vo) {
+		dao = template.getMapper(BoardDao.class);
+		dao.modify(vo);
+	}
+	
+	//게시물 삭제
+	public void delete(int idx) {
+		dao = template.getMapper(BoardDao.class);
+		dao.deleteList(idx);
+	}
 	
 }

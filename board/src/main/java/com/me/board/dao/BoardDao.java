@@ -17,4 +17,9 @@ public interface BoardDao {
 	
 	//게시물상세조회
 	ListVO getDetailedView(int idx);
+	
+	//게시물 수정
+	void modify(ListVO vo);
+	
+	void deleteList(int idx);
 }
