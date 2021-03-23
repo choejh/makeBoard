@@ -15,4 +15,6 @@ public interface BoardDao {
 	
 	int getBoardListCnt(); 
 	
+	//게시물상세조회
+	ListVO getDetailedView(int idx);
 }

@@ -11,8 +11,22 @@ public class ListVO {
 	private Date inserttime;
 	private int viewcnt;
 	private String password;
+	private String writer;
+	private String delete_yn;
 	
 
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+	public String getDelete_yn() {
+		return delete_yn;
+	}
+	public void setDelete_yn(String delete_yn) {
+		this.delete_yn = delete_yn;
+	}
 	public int getIdx() {
 		return idx;
 	}

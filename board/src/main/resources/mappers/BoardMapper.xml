@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </insert>
 
 <select id="printList" resultType="com.me.board.dto.ListVO">
-	SELECT IDX,TITLE,CONTENTS,INSERTTIME,VIEWCNT,PASSWORD
+	SELECT IDX,TITLE,CONTENTS,INSERTTIME,VIEWCNT,PASSWORD,WRITER
 	FROM tb_board
 	ORDER BY IDX desc 
 	LIMIT #{startList},#{listSize}
@@ -27,4 +27,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	SELECT count(*) as listCnt FROM tb_board
 </select>
 
+<!-- 게시물 조회 -->
+<select id="getDetailedView" resultType="com.me.board.dto.ListVO">
+	SELECT IDX,TITLE,CONTENTS,INSERTTIME,VIEWCNT,PASSWORD,WRITER
+	FROM tb_board
+	Where idx = #{idx}
+</select>
 </mapper>

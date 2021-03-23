@@ -18,6 +18,7 @@ public class BoardService {
 	@Autowired
 	private SqlSessionTemplate template;
 	
+	//페이지
 	public List<ListVO> boardList(pageDTO pagination){
 		dao = template.getMapper(BoardDao.class);
 		return dao.printList(pagination);
@@ -27,6 +28,12 @@ public class BoardService {
 	public int getBoardListCnt() {
 		dao = template.getMapper(BoardDao.class);
 		return dao.getBoardListCnt();
+	}
+	
+	//게시물 조회
+	public ListVO detailView(int idx) {
+		dao = template.getMapper(BoardDao.class);
+		return dao.getDetailedView(idx);
 	}
 	
 	

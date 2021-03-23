@@ -25,8 +25,10 @@
 	<c:forEach items="${list}" var="lst">
 	<tr>
 	<td>${lst.idx}</td>
-	<td>${lst.title}</td>
-	<td>${lst.contents}</td>
+	<td>
+	<a href="/board/view?bno=${lst.idx}">${lst.title}</a>
+	</td>
+	<td>${lst.writer}</td>
 	<td>${lst.inserttime}</td>
 	</tr>
 	</c:forEach>

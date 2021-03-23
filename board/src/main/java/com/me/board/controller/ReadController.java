@@ -14,13 +14,14 @@ import com.me.board.dto.pageDTO;
 import com.me.board.service.BoardService;
 
 @Controller
-@RequestMapping("/list")
+@RequestMapping("/board/*")
 public class ReadController {
 
 		@Autowired
 		private BoardService boardS;
 		
-		@GetMapping
+		//게시물 목록
+		@GetMapping(value="/list")
 		public String boardList(ListVO listVO, Model model,
 				@RequestParam(required=false, defaultValue="1") int page,
 				@RequestParam(required=false, defaultValue="1") int range
@@ -40,5 +41,13 @@ public class ReadController {
 			model.addAttribute("list",list);	
 			System.out.println(list);
 		return "myboard";
+		}
+		
+		//게시물 조회
+		@GetMapping(value="/view")
+		public String writeView(@RequestParam("bno") int idx, Model model) {
+			ListVO vo = boardS.detailView(idx);
+			model.addAttribute("view", vo);
+			return "detail";
 		}
 }
