@@ -28,6 +28,6 @@ public class WriteController {
 		System.out.println("완료");
 		System.out.println(result);
 		
-		return "redirect:board/list";
+		return "redirect:board/listPage?num=1";
 	}
 }

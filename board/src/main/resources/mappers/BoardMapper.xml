@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	SELECT IDX,TITLE,CONTENTS,INSERTTIME,VIEWCNT,PASSWORD,WRITER
 	FROM tb_board
 	ORDER BY IDX desc 
-	LIMIT #{startList},#{listSize}
+	limit 10
 </select>
 
 <!-- 전체 글 개수 가져오기 -->
@@ -48,4 +48,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	FROM tb_board
 	WHERE idx=#{idx}
 </delete>
+
+<!--게시물 목록+페이징-->
+<select id="listPage" parameterType="hashMap" resultType="com.me.board.dto.ListVO">
+	SELECT IDX,TITLE,CONTENTS,INSERTTIME,VIEWCNT,PASSWORD,WRITER
+	FROM tb_board
+	ORDER BY idx desc
+	limit #{displayPost}, #{postNum}
+</select>
 </mapper>

@@ -5,13 +5,12 @@ import java.util.List;
 
 import com.me.board.dto.ListVO;
 import com.me.board.dto.WriteDTO;
-import com.me.board.dto.pageDTO;
 
 public interface BoardDao {
 
 	int insertWrite(WriteDTO dto);
 	
-	List<ListVO> printList(pageDTO pagination);
+	List<ListVO> printList();
 	
 	int getBoardListCnt(); 
 	
@@ -21,5 +20,10 @@ public interface BoardDao {
 	//게시물 수정
 	void modify(ListVO vo);
 	
+	//게시물 삭제
 	void deleteList(int idx);
+	
+	//게시물 목록+페이징
+	List<ListVO> listPage(int displayPost, int postNum);
+	
 }
